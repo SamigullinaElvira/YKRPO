@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import java.time.LocalTime;
 
+
 public class CreatePostTest extends TestBase {
     @Test
     public void testCreate() throws InterruptedException {
@@ -18,11 +19,13 @@ public class CreatePostTest extends TestBase {
         app.getLoginHelper().login(user);
 
         String time = LocalTime.now().getHour() + ":" + LocalTime.now().getMinute();
-        PostData expectedPostData = new PostData(time, "HELLO");
+        PostData expectedPostData = new PostData(time, "HELO");
+        Thread.sleep(10);
         app.getPostHelper().createPost(expectedPostData.getText());
         Thread.sleep(10);
 
         PostData postData = app.getPostHelper().getCreatedPostData();
         assertEquals(expectedPostData, postData);
+        System.out.println("2");
     }
 }

@@ -1,5 +1,7 @@
 package com.example.myapplication.objects;
 
+import androidx.annotation.NonNull;
+
 public class PostData {
     private String text;
     private String time;
@@ -22,5 +24,13 @@ public class PostData {
         }
         PostData other = (PostData) obj;
         return text.equals(other.text) && time.equals(other.time);
+    }
+    @NonNull
+    @Override
+    public String toString() {
+        return "PostData{" +
+                "text='" + text + '\'' +
+                ", time='" + time + '\'' +
+                '}';
     }
 }
