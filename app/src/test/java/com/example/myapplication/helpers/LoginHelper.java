@@ -15,6 +15,6 @@ public class LoginHelper extends HelperBase {
         driver.findElement(By.id("form__input-email")).sendKeys(user.getLogin());
         driver.findElement(By.id("form__input-password")).click();
         driver.findElement(By.id("form__input-password")).sendKeys(user.getPassword());
-        driver.findElement(By.cssSelector(".form__button")).click();
+        driver.findElement(By.xpath("//button[@type=\"submit\"]")).click();
     }
 }
