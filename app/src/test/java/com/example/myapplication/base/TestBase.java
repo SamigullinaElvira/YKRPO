@@ -8,7 +8,7 @@ public class TestBase {
     protected static AppManager app;
     @Before
     public void setUp() {
-        app = new AppManager();
+        app = AppManager.getInstance();
     }
 
     @After

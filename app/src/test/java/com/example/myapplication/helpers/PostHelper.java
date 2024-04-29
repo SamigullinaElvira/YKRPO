@@ -1,9 +1,12 @@
 package com.example.myapplication.helpers;
 
 import com.example.myapplication.AppManager;
+import com.example.myapplication.objects.PostData;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class PostHelper extends HelperBase {
     public PostHelper(AppManager manager) {
@@ -18,4 +21,15 @@ public class PostHelper extends HelperBase {
         }
         driver.findElement(By.cssSelector(".lg\\3A block")).click();
     }
+
+    public PostData getCreatedPostData() {
+        List<WebElement> noteElements = driver.findElements(By.cssSelector(".notes-list-item"));
+        WebElement latestNoteElement = noteElements.get(noteElements.size() - 1);
+        String time = latestNoteElement.findElement(By.cssSelector(".note-time")).getText();
+        String text = latestNoteElement.findElement(By.cssSelector(".text-format")).getText();
+        return new PostData(time, text);
+    }
+
+
 }
+

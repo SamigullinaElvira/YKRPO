@@ -15,11 +15,12 @@ public class AppManager {
     private String baseURL;
     protected WebDriver driver;
     protected JavascriptExecutor js;
+    private static ThreadLocal<AppManager> app = new ThreadLocal<>();
     private NavigationHelper navigation;
     private LoginHelper auth;
     private PostHelper post;
 
-    public AppManager() {
+    private AppManager() {
         baseURL = "https://web.mindlog.app/";
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
@@ -29,6 +30,15 @@ public class AppManager {
         post = new PostHelper(this);
         auth = new LoginHelper(this);
         navigation = new NavigationHelper(this, baseURL);
+    }
+
+    public static AppManager getInstance() {
+        if (app.get() == null) {
+            AppManager newInstance = new AppManager();
+            newInstance.getNavigationHelper().openHomePage();
+            app.set(newInstance);
+        }
+        return app.get();
     }
 
     public WebDriver getDriver() {
@@ -51,6 +61,10 @@ public class AppManager {
     }
 
     public void stop() {
-        driver.quit();
+        try {
+            driver.quit();
+        } catch (Exception ignored) {
+            // Игнорируем исключения при завершении работы драйвера
+        }
     }
 }
