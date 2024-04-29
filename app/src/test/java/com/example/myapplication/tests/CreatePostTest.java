@@ -19,7 +19,7 @@ public class CreatePostTest extends TestBase {
 
         String time = LocalTime.now().getHour() + ":" + LocalTime.now().getMinute();
         PostData expectedPostData = new PostData(time, "HELLO");
-        app.getPostHelper().createPost("HELLO");
+        app.getPostHelper().createPost(expectedPostData.getText());
         Thread.sleep(10);
 
         PostData postData = app.getPostHelper().getCreatedPostData();
