@@ -8,10 +8,6 @@ public class PostData {
         this.time = time;
         this.text = text;
     }
-    public String getText() {
-        return text;
-    }
-
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

@@ -7,9 +7,7 @@ import com.example.myapplication.objects.PostData;
 
 import org.junit.Test;
 
-import java.sql.Time;
 import java.time.LocalTime;
-import java.util.TimeZone;
 
 public class CreatePostTest extends TestBase {
     @Test
