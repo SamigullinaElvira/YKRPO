@@ -13,6 +13,6 @@ public class AuthTest extends TestBase {
         app.getNavigationHelper().setWindowSize();
         AccountData user = new AccountData("obviioussly@gmail.com", "secret88");
         app.getLoginHelper().login(user);
-        System.out.println("1");
+        app.getLoginHelper().logout();
     }
 }

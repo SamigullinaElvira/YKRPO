@@ -17,4 +17,10 @@ public class LoginHelper extends HelperBase {
         driver.findElement(By.id("form__input-password")).sendKeys(user.getPassword());
         driver.findElement(By.xpath("//button[@type=\"submit\"]")).click();
     }
+
+    public void logout(){
+        driver.findElement(By.cssSelector(".bi-list")).click();
+        driver.findElement(By.cssSelector(".fa-caret-down")).click();
+        driver.findElement(By.linkText("🚪 Выйти")).click();
+    }
 }

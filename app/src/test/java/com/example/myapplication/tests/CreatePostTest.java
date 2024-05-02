@@ -26,6 +26,6 @@ public class CreatePostTest extends TestBase {
 
         PostData postData = app.getPostHelper().getCreatedPostData();
         assertEquals(expectedPostData, postData);
-        System.out.println("2");
+        app.getLoginHelper().logout();
     }
 }
