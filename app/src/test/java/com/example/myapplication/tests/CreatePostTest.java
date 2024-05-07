@@ -13,6 +13,6 @@ public class CreatePostTest extends TestBase {
         AccountData user = new AccountData("obviioussly@gmail.com", "secret88");
         app.getLoginHelper().login(user);
         app.getPostHelper().createPost("HELLO");
-        Thread.sleep(10);
+        Thread.sleep(100);
     }
 }
