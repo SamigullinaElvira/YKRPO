@@ -33,4 +33,8 @@ public class PostData {
                 ", time='" + time + '\'' +
                 '}';
     }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
 }
