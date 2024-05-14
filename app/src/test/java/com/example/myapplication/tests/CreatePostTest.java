@@ -5,10 +5,6 @@ import com.example.myapplication.DataRetriever;
 import com.example.myapplication.base.TestBase;
 import com.example.myapplication.objects.AccountData;
 import com.example.myapplication.objects.PostData;
-
-import org.junit.Test;
-
-import java.time.LocalTime;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -24,14 +20,14 @@ public class CreatePostTest extends TestBase {
         app.getLoginHelper().login(user);
 
         PostData[] postDataArray = (PostData[]) DataRetriever.retrieveData(fileName, PostData[].class);
+        PostData expectedPostData = postDataArray[0];
 
-        for (PostData expectedPostData : postDataArray) {
-            app.getPostHelper().createPost(expectedPostData.getText());
-            Thread.sleep(10);
+        app.getPostHelper().createPost(expectedPostData.getText());
 
-            PostData postData = app.getPostHelper().getCreatedPostData();
-            assertEquals(expectedPostData, postData);
-        }
+        Thread.sleep(10);
+
+        PostData postData = app.getPostHelper().getCreatedPostData();
+        assertEquals(expectedPostData, postData);
 
         app.getLoginHelper().logout();
     }

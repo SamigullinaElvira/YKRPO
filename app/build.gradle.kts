@@ -40,8 +40,8 @@ dependencies {
     implementation(libs.seleniumhq)
     testImplementation(libs.testng)
     testImplementation(libs.junit)
+    testImplementation(libs.junit.jupiter)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-
-
+    implementation(libs.jackson.dataformat.xml)
 }
